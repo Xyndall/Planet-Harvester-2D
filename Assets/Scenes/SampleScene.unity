@@ -142,9 +142,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -160,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,9 +231,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -241,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -989,7 +1005,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998732712}
-  - component: {fileID: 998732711}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -997,18 +1012,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &998732711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998732710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5e33ea9066665439c4e7649f49cb3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &998732712
 Transform:
   m_ObjectHideFlags: 0
@@ -1276,9 +1279,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -1294,7 +1305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1362,9 +1373,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -1380,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1566,6 +1585,7 @@ GameObject:
   - component: {fileID: 1387108957}
   - component: {fileID: 1387108963}
   - component: {fileID: 1387108962}
+  - component: {fileID: 1387108964}
   m_Layer: 6
   m_Name: PlayerOne
   m_TagString: PlayerOne
@@ -1590,6 +1610,7 @@ MonoBehaviour:
   _turnSpeed: 1
   _reverseSpeed: -2
   _playerisFrozen: 0
+  _TimeToFire: 1
 --- !u!50 &1387108958
 Rigidbody2D:
   serializedVersion: 4
@@ -1720,8 +1741,9 @@ MonoBehaviour:
   _resourceManager: {fileID: 1387108963}
   _isDrilling: 0
   _overPlanet: 0
+  _playerNum: 1
   _hasDrill: 0
-  IsPlayerOneDrill: 0
+  _planetHasDrill: 0
 --- !u!114 &1387108963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,6 +1758,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resources: 2
   _drillsOwned: 0
+  timerLimit: 1
+--- !u!61 &1387108964
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387108956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0.5
 --- !u!1 &1592757111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,9 +1972,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -1937,7 +1994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2289,6 +2346,7 @@ MonoBehaviour:
   _turnSpeed: 1
   _reverseSpeed: -2
   _PlayerisFrozen: 0
+  _TimeToFire: 1
 --- !u!114 &1799166750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,8 +2362,9 @@ MonoBehaviour:
   _resourceManager: {fileID: 1799166751}
   _isDrilling: 0
   _overPlanet: 0
+  _playerNum: 2
   _hasDrill: 0
-  IsPlayerOneDrill: 0
+  _planetHasDrill: 0
 --- !u!114 &1799166751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,6 +2379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resources: 0
   _drillsOwned: 0
+  timerLimit: 1
 --- !u!4 &1816291526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
@@ -2344,9 +2404,17 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
       value: Planet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974526, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Color.b
@@ -2358,7 +2426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2577,8 +2645,16 @@ PrefabInstance:
       propertyPath: PlayerTwoDrill
       value: 
       objectReference: {fileID: 1799166750}
+    - target: {fileID: 5023756973350656156, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
       propertyPath: m_Name
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190410104366974525, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}
+      propertyPath: m_TagString
       value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7190410104366974527, guid: e0b171f89ee97a149bc7605eb444e6bb, type: 3}

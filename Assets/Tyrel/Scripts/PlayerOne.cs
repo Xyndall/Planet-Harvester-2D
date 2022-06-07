@@ -7,9 +7,9 @@ public class PlayerOne : MonoBehaviour
     public Bullet _bulletPrefab;
 
 
-    public float _thrustSpeed;
-    public float _turnSpeed;
-    public float _reverseSpeed;
+    public float _thrustSpeed = 5;
+    public float _turnSpeed = 1;
+    public float _reverseSpeed = -2;
 
     private bool _thrusting;
     private bool _reverse;
@@ -18,6 +18,9 @@ public class PlayerOne : MonoBehaviour
     Rigidbody2D _rb;
 
     public bool _playerisFrozen;
+
+    private float _fireRatetimer = 0;
+    public float _TimeToFire = 2;
 
     void Start()
     {
@@ -42,9 +45,15 @@ public class PlayerOne : MonoBehaviour
             _turnDir = 0.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && _playerisFrozen == false)
+
+
+        _fireRatetimer += Time.deltaTime;
+
+
+        if (Input.GetKeyDown(KeyCode.G) && _playerisFrozen == false && _fireRatetimer >= _TimeToFire)
         {
             Shoot();
+            _fireRatetimer = 0.0f;
         }
 
 

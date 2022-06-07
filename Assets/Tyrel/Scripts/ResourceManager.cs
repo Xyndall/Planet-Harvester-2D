@@ -12,41 +12,48 @@ public class ResourceManager : MonoBehaviour
     bool _drilling;
     public int _drillsOwned;
 
+    public float timerLimit = 1.0f;
+    private float timer = 0.0f;
+
+    public int _upgraded;
 
 
     void Start()
     {
+        _upgraded = 1;
         _resources = 0;
         _drillsOwned = 0;
     }
 
 
-    private void FixedUpdate()
+
+    private void Update()
     {
-        if (_drilling)
+        timer += Time.deltaTime;
+        if (timer >= 1.0f && _drilling)
         {
-            StartCoroutine(GainResources(_drillsOwned));
-            Debug.Log("Resource Manager _drilling");
+
+            GainResource(_drillsOwned);
+            timer = 0.0f;
         }
-    }
 
 
-    IEnumerator GainResources(int drillsOwned)
-    {
-        while (_resources < 100000000)
-        {
-            _resources += drillsOwned;
-            yield return new WaitForSeconds(1);
-            
-        }
         
-       
     }
+
+
+
+    void GainResource(int drillsOwned)
+    {
+        _resources += drillsOwned * _upgraded;
+    }
+
+
 
     public void PlaceDrill(bool IsDrilling)
     {
         _drilling = IsDrilling;
-        Debug.Log("IsDrilling");
+
     }
 
 

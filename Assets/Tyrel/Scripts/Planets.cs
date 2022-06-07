@@ -5,42 +5,18 @@ using UnityEngine;
 public class Planets : MonoBehaviour
 {
 
-    public Drill PlayerOneDrill;
-    public Drill PlayerTwoDrill;
+    public bool _hasDrill;
+    public int _playerDrillNum;
 
-    
-
-     void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "PlayerOne")
+        if(collision.gameObject.tag == "PlayerOne" || collision.gameObject.tag == "PlayerTwo")
         {
-            
-            PlayerOneDrill._overPlanet = true;
-
-
+            Drill drill = collision.gameObject.GetComponent<Drill>();
+            drill._planetHasDrill = _hasDrill;
         }
 
-        if(collision.gameObject.tag == "PlayerTwo")
-        {
-            PlayerTwoDrill._overPlanet = true;
-
-
-        }
-
-    }
-
-     void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "PlayerOne")
-        {
-            
-            PlayerOneDrill._overPlanet = false;
-        }
-        if (collision.gameObject.tag == "PlayerTwo")
-        {
-            PlayerOneDrill._overPlanet = false;
-        }
-
+        
     }
 
 }

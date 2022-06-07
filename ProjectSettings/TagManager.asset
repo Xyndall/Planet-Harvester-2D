@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerOne
   - PlayerTwo
+  - Planet
   layers:
   - Default
   - TransparentFX

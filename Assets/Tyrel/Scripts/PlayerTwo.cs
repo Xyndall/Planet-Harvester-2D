@@ -19,6 +19,9 @@ public class PlayerTwo : MonoBehaviour
 
     public bool _PlayerisFrozen;
 
+    private float _fireRatetimer = 0;
+    public float _TimeToFire = 2;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -43,9 +46,12 @@ public class PlayerTwo : MonoBehaviour
             _turnDir = 0.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Period) && _PlayerisFrozen == false)
+
+        _fireRatetimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Period) && _PlayerisFrozen == false && _fireRatetimer >= _TimeToFire)
         {
             Shoot();
+            _fireRatetimer = 0.0f; 
         }
 
 

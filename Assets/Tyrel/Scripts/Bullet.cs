@@ -14,11 +14,9 @@ public class Bullet : MonoBehaviour
 
     public void Project(Vector2 direction)
     {
-        Debug.Log("Project");
         _rb.AddForce(direction * _speed);
 
         Destroy(this.gameObject, _maxLifeTime);
-        Debug.Log("Destroyed Bullet");
     }
 
     
