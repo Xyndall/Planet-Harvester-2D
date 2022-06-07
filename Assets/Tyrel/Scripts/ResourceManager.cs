@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class ResourceManager : MonoBehaviour
 {
 
@@ -10,6 +11,8 @@ public class ResourceManager : MonoBehaviour
 
     bool _drilling;
     public int _drillsOwned;
+
+
 
     void Start()
     {
@@ -22,21 +25,22 @@ public class ResourceManager : MonoBehaviour
     {
         if (_drilling)
         {
-            GainResource(_drillsOwned);
+            StartCoroutine(GainResources(_drillsOwned));
             Debug.Log("Resource Manager _drilling");
         }
     }
 
-    void GainResource(int drillsOwned)
+
+    IEnumerator GainResources(int drillsOwned)
     {
-        
-
-        for(int i = 0; i < 100000; i++)
+        while (_resources < 100000000)
         {
-            System.Threading.Thread.Sleep(1000);
-            _resources += drillsOwned * 1;
+            _resources += drillsOwned;
+            yield return new WaitForSeconds(1);
+            
         }
-
+        
+       
     }
 
     public void PlaceDrill(bool IsDrilling)
