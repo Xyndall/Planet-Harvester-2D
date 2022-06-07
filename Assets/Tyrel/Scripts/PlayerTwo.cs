@@ -17,9 +17,12 @@ public class PlayerTwo : MonoBehaviour
 
     Rigidbody2D _rb;
 
+    public bool _PlayerisFrozen;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _PlayerisFrozen = false;
     }
 
     void Update()
@@ -27,11 +30,11 @@ public class PlayerTwo : MonoBehaviour
         _thrusting = Input.GetKey(KeyCode.UpArrow);
         _reverse = Input.GetKey(KeyCode.DownArrow);
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && _PlayerisFrozen == false)
         {
             _turnDir = 1.0f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && _PlayerisFrozen == false)
         {
             _turnDir = -1f;
         }
@@ -40,7 +43,7 @@ public class PlayerTwo : MonoBehaviour
             _turnDir = 0.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Greater))
+        if (Input.GetKeyDown(KeyCode.Period) && _PlayerisFrozen == false)
         {
             Shoot();
         }
@@ -51,17 +54,17 @@ public class PlayerTwo : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (_thrusting)
+        if (_thrusting && _PlayerisFrozen == false)
         {
             _rb.AddForce(transform.up * _thrustSpeed);
         }
 
-        if (_reverse)
+        if (_reverse && _PlayerisFrozen == false)
         {
             _rb.AddForce(transform.up * _reverseSpeed);
         }
 
-        if (_turnDir != 0)
+        if (_turnDir != 0 && _PlayerisFrozen == false)
         {
             _rb.AddTorque(_turnDir * _turnSpeed);
         }
@@ -74,4 +77,21 @@ public class PlayerTwo : MonoBehaviour
         bullet.Project(transform.up);
         Debug.Log("Shoot");
     }
+
+
+    public void FreezePlayer()
+    {
+        _PlayerisFrozen = true;
+        StartCoroutine(PlayerFrozen());
+    }
+
+    IEnumerator PlayerFrozen()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("PlayerTwo Unfroze");
+         _PlayerisFrozen = false;
+
+    }
+
+
 }
