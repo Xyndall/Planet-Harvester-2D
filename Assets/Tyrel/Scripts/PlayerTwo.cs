@@ -17,7 +17,7 @@ public class PlayerTwo : MonoBehaviour
 
     Rigidbody2D _rb;
 
-    public bool _PlayerisFrozen;
+    public bool _playerisFrozen;
 
     private float _fireRatetimer = 0;
     public float _TimeToFire = 2;
@@ -25,7 +25,7 @@ public class PlayerTwo : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _PlayerisFrozen = false;
+        _playerisFrozen = false;
     }
 
     void Update()
@@ -33,11 +33,11 @@ public class PlayerTwo : MonoBehaviour
         _thrusting = Input.GetKey(KeyCode.UpArrow);
         _reverse = Input.GetKey(KeyCode.DownArrow);
 
-        if (Input.GetKey(KeyCode.LeftArrow) && _PlayerisFrozen == false)
+        if (Input.GetKey(KeyCode.LeftArrow) && _playerisFrozen == false)
         {
             _turnDir = 1.0f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && _PlayerisFrozen == false)
+        else if (Input.GetKey(KeyCode.RightArrow) && _playerisFrozen == false)
         {
             _turnDir = -1f;
         }
@@ -48,7 +48,7 @@ public class PlayerTwo : MonoBehaviour
 
 
         _fireRatetimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Period) && _PlayerisFrozen == false && _fireRatetimer >= _TimeToFire)
+        if (Input.GetKeyDown(KeyCode.Period) && _playerisFrozen == false && _fireRatetimer >= _TimeToFire)
         {
             Shoot();
             _fireRatetimer = 0.0f; 
@@ -60,17 +60,17 @@ public class PlayerTwo : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (_thrusting && _PlayerisFrozen == false)
+        if (_thrusting && _playerisFrozen == false)
         {
             _rb.AddForce(transform.up * _thrustSpeed);
         }
 
-        if (_reverse && _PlayerisFrozen == false)
+        if (_reverse && _playerisFrozen == false)
         {
             _rb.AddForce(transform.up * _reverseSpeed);
         }
 
-        if (_turnDir != 0 && _PlayerisFrozen == false)
+        if (_turnDir != 0 && _playerisFrozen == false)
         {
             _rb.AddTorque(_turnDir * _turnSpeed);
         }
@@ -87,7 +87,7 @@ public class PlayerTwo : MonoBehaviour
 
     public void FreezePlayer()
     {
-        _PlayerisFrozen = true;
+        _playerisFrozen = true;
         StartCoroutine(PlayerFrozen());
     }
 
@@ -95,7 +95,7 @@ public class PlayerTwo : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Debug.Log("PlayerTwo Unfroze");
-         _PlayerisFrozen = false;
+         _playerisFrozen = false;
 
     }
 

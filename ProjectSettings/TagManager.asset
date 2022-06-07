@@ -7,6 +7,8 @@ TagManager:
   - PlayerOne
   - PlayerTwo
   - Planet
+  - Drill1
+  - Drill2
   layers:
   - Default
   - TransparentFX
