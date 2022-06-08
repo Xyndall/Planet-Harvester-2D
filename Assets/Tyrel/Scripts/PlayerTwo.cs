@@ -17,9 +17,15 @@ public class PlayerTwo : MonoBehaviour
 
     Rigidbody2D _rb;
 
+    public bool _playerisFrozen;
+
+    private float _fireRatetimer = 0;
+    public float _TimeToFire = 2;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerisFrozen = false;
     }
 
     void Update()
@@ -27,11 +33,11 @@ public class PlayerTwo : MonoBehaviour
         _thrusting = Input.GetKey(KeyCode.UpArrow);
         _reverse = Input.GetKey(KeyCode.DownArrow);
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && _playerisFrozen == false)
         {
             _turnDir = 1.0f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && _playerisFrozen == false)
         {
             _turnDir = -1f;
         }
@@ -40,9 +46,12 @@ public class PlayerTwo : MonoBehaviour
             _turnDir = 0.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Greater))
+
+        _fireRatetimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Period) && _playerisFrozen == false && _fireRatetimer >= _TimeToFire)
         {
             Shoot();
+            _fireRatetimer = 0.0f; 
         }
 
 
@@ -51,17 +60,17 @@ public class PlayerTwo : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (_thrusting)
+        if (_thrusting && _playerisFrozen == false)
         {
             _rb.AddForce(transform.up * _thrustSpeed);
         }
 
-        if (_reverse)
+        if (_reverse && _playerisFrozen == false)
         {
             _rb.AddForce(transform.up * _reverseSpeed);
         }
 
-        if (_turnDir != 0)
+        if (_turnDir != 0 && _playerisFrozen == false)
         {
             _rb.AddTorque(_turnDir * _turnSpeed);
         }
@@ -74,4 +83,21 @@ public class PlayerTwo : MonoBehaviour
         bullet.Project(transform.up);
         Debug.Log("Shoot");
     }
+
+
+    public void FreezePlayer()
+    {
+        _playerisFrozen = true;
+        StartCoroutine(PlayerFrozen());
+    }
+
+    IEnumerator PlayerFrozen()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("PlayerTwo Unfroze");
+         _playerisFrozen = false;
+
+    }
+
+
 }
