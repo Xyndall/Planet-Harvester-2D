@@ -14,8 +14,9 @@ public class DrillerScript : MonoBehaviour
         Debug.Log("PlacedDrill");
     }
 
-    public void DestroyDrill()
+    public void DestroyDrill(int PlanetSize)
     {
         _resourceManager._drillsOwned--;
+        _resourceManager._planetSize -= PlanetSize;
     }
 }

@@ -11,7 +11,7 @@ public class ResourceManager : MonoBehaviour
 
     bool _drilling;
     public int _drillsOwned;
-    int _planetSize;
+    public int _planetSize;
 
     public float timerLimit = 1.0f;
     private float timer = 0.0f;

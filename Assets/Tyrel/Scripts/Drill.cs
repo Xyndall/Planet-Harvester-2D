@@ -82,7 +82,7 @@ public class Drill : MonoBehaviour
         progressBar.transform.SetParent(_canvas.transform);
         yield return new WaitForSeconds(_stealTime);
         playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = false;
-        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill();
+        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
         Destroy(progressBar.gameObject);
         Destroy(_drillLastTouched);
         SpawnDrill();
@@ -97,7 +97,7 @@ public class Drill : MonoBehaviour
         progressBar.transform.SetParent(_canvas.transform);
         yield return new WaitForSeconds(_stealTime);
         playerOne.GetComponent<PlayerOne>()._playerisFrozen = false;
-        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill();
+        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
         Destroy(progressBar.gameObject);
         Destroy(_drillLastTouched);
         SpawnDrill();
