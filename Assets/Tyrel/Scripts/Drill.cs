@@ -50,6 +50,7 @@ public class Drill : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Comma) && _canSteal)
         {
+
             StartCoroutine(StealingDrillOne());
         }
         if(Input.GetKeyDown(KeyCode.F) && _canSteal)
@@ -74,6 +75,7 @@ public class Drill : MonoBehaviour
 
     IEnumerator StealingDrillOne()
     {
+        _canSteal = false;
         PlayerTwo playerTwo = GetComponent<PlayerTwo>();
         playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = true;
         ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
@@ -88,6 +90,7 @@ public class Drill : MonoBehaviour
 
     IEnumerator StealingDrillTwo()
     {
+        _canSteal = false;
         PlayerOne playerOne = GetComponent<PlayerOne>();
         playerOne.GetComponent<PlayerOne>()._playerisFrozen = true;
         ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);

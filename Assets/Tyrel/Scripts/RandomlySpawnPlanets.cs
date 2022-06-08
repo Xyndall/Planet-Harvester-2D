@@ -11,6 +11,8 @@ public class RandomlySpawnPlanets : MonoBehaviour
 
     public int _planetsSpawned = 20;
     public GameObject _planetParent;
+    public Sprite[] _planetSprite;
+    int _randomSprite;
 
     private void Start()
     {
@@ -30,12 +32,14 @@ public class RandomlySpawnPlanets : MonoBehaviour
     {
         Vector2 pos = Center + new Vector2(Random.Range(-Size.x / 2, Size.x / 2), Random.Range(-Size.y / 2, Size.y / 2));
 
-        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 3);
+        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 5);
         
         if(CollisionWithPlanet == false)
         {
             GameObject Planets = Instantiate(_planetPrefab[Random.Range(0, _planetPrefab.Length )], pos, Quaternion.identity);
             Planets.transform.SetParent(_planetParent.transform);
+            _randomSprite = Random.Range(0, _planetSprite.Length);
+            Planets.GetComponent<SpriteRenderer>().sprite = _planetSprite[_randomSprite];
         }
 
         
