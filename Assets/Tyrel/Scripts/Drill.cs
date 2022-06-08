@@ -21,6 +21,9 @@ public class Drill : MonoBehaviour
     bool _canSteal;
     GameObject _drillLastTouched;
 
+    public ProgressBar _progressBar;
+    public GameObject _canvas;
+    public Transform _SliderPosition;
 
     private void Start()
     {
@@ -72,9 +75,12 @@ public class Drill : MonoBehaviour
     {
         PlayerTwo playerTwo = GetComponent<PlayerTwo>();
         playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = true;
+        ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
+        progressBar.transform.SetParent(_canvas.transform);
         yield return new WaitForSeconds(_stealTime);
         playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = false;
         _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill();
+        Destroy(progressBar.gameObject);
         Destroy(_drillLastTouched);
         SpawnDrill();
     }
@@ -83,9 +89,12 @@ public class Drill : MonoBehaviour
     {
         PlayerOne playerOne = GetComponent<PlayerOne>();
         playerOne.GetComponent<PlayerOne>()._playerisFrozen = true;
+        ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
+        progressBar.transform.SetParent(_canvas.transform);
         yield return new WaitForSeconds(_stealTime);
         playerOne.GetComponent<PlayerOne>()._playerisFrozen = false;
         _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill();
+        Destroy(progressBar.gameObject);
         Destroy(_drillLastTouched);
         SpawnDrill();
     }
