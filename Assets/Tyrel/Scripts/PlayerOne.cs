@@ -26,6 +26,9 @@ public class PlayerOne : MonoBehaviour
     public GameObject _canvas;
     public Transform _SliderPosition;
 
+    public AudioSource _audioSource;
+    public AudioClip[] _audioClip;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -48,7 +51,6 @@ public class PlayerOne : MonoBehaviour
         {
             _turnDir = 0.0f;
         }
-
 
 
         _fireRatetimer += Time.deltaTime;
@@ -87,10 +89,20 @@ public class PlayerOne : MonoBehaviour
     {
         Bullet bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
         bullet.Project(transform.up);
+        PlayAudio(0);
         Debug.Log("Shoot");
     }
 
+    void PlayThrusters()
+    {
+        //Seperate AudioSource on empty child object
 
+    }
+
+    void PlayAudio(int aClip)
+    {
+        _audioSource.PlayOneShot(_audioClip[aClip]);
+    }
 
     public void FreezePlayer()
     {
@@ -107,6 +119,15 @@ public class PlayerOne : MonoBehaviour
         Debug.Log("PlayerOne Unfroze");
         _playerisFrozen = false;
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+
+            PlayAudio(2);
+        }
     }
 
 }

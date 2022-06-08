@@ -25,6 +25,10 @@ public class PlayerTwo : MonoBehaviour
     public ProgressBar _progressBar;
     public GameObject _canvas;
     public Transform _SliderPosition;
+
+    public AudioSource _audioSource;
+    public AudioClip[] _audioClip;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -66,6 +70,7 @@ public class PlayerTwo : MonoBehaviour
         if (_thrusting && _playerisFrozen == false)
         {
             _rb.AddForce(transform.up * _thrustSpeed);
+            
         }
 
         if (_reverse && _playerisFrozen == false)
@@ -84,6 +89,7 @@ public class PlayerTwo : MonoBehaviour
     {
         Bullet bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
         bullet.Project(transform.up);
+        PlayAudio(0);
         Debug.Log("Shoot");
     }
 
@@ -105,5 +111,24 @@ public class PlayerTwo : MonoBehaviour
 
     }
 
+    void PlayThrusters()
+    {
+        //Seperate AudioSource on empty child object
 
+    }
+
+    void PlayAudio(int aClip)
+    {
+        _audioSource.PlayOneShot(_audioClip[aClip]);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            PlayAudio(2);
+            
+        }
+    }
 }

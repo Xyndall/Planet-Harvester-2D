@@ -18,7 +18,7 @@ public class ResourceManager : MonoBehaviour
 
     public int _upgraded;
 
-
+    
     void Start()
     {
         _upgraded = 0;

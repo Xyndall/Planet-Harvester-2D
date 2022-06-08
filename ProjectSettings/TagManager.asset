@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - Drill1
   - Drill2
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - PlayerTwo
   - BulletOne
   - BulletTwo
-  - 
+  - PostProcess
   - 
   - 
   - 
