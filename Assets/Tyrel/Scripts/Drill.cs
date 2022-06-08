@@ -48,12 +48,12 @@ public class Drill : MonoBehaviour
             SpawnDrill();
         }
 
-        if(Input.GetKeyDown(KeyCode.Comma) && _canSteal)
+        if(Input.GetKeyDown(KeyCode.Comma) && _canSteal && _playerNum == 2)
         {
 
             StartCoroutine(StealingDrillOne());
         }
-        if(Input.GetKeyDown(KeyCode.F) && _canSteal)
+        if(Input.GetKeyDown(KeyCode.F) && _canSteal && _playerNum == 1)
         {
             StartCoroutine(StealingDrillTwo());
         }
