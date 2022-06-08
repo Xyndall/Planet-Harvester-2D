@@ -22,6 +22,9 @@ public class PlayerTwo : MonoBehaviour
     private float _fireRatetimer = 0;
     public float _TimeToFire = 2;
 
+    public ProgressBar _progressBar;
+    public GameObject _canvas;
+    public Transform _SliderPosition;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -93,7 +96,10 @@ public class PlayerTwo : MonoBehaviour
 
     IEnumerator PlayerFrozen()
     {
+        ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
+        progressBar.transform.SetParent(_canvas.transform);
         yield return new WaitForSeconds(3);
+        Destroy(progressBar.gameObject);
         Debug.Log("PlayerTwo Unfroze");
          _playerisFrozen = false;
 

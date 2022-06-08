@@ -11,6 +11,7 @@ public class ResourceManager : MonoBehaviour
 
     bool _drilling;
     public int _drillsOwned;
+    int _planetSize;
 
     public float timerLimit = 1.0f;
     private float timer = 0.0f;
@@ -20,9 +21,10 @@ public class ResourceManager : MonoBehaviour
 
     void Start()
     {
-        _upgraded = 1;
+        _upgraded = 0;
         _resources = 0;
         _drillsOwned = 0;
+        _planetSize = 0;
     }
 
 
@@ -45,15 +47,15 @@ public class ResourceManager : MonoBehaviour
 
     void GainResource(int drillsOwned)
     {
-        _resources += drillsOwned * _upgraded;
+        _resources += drillsOwned + _upgraded + _planetSize;
     }
 
 
 
-    public void PlaceDrill(bool IsDrilling)
+    public void PlaceDrill(bool IsDrilling, int PlanetSize)
     {
         _drilling = IsDrilling;
-
+        _planetSize += PlanetSize;
     }
 
 

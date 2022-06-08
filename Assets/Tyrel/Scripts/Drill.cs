@@ -13,7 +13,7 @@ public class Drill : MonoBehaviour
     public int _playerNum;
     public bool _hasDrill;
     public bool _planetHasDrill;
-
+    
 
     public DrillerScript _Drill;
     Vector2 _lastDrillPosition;
@@ -65,9 +65,10 @@ public class Drill : MonoBehaviour
         _isDrilling = true;
         _planets._hasDrill = true;
         _planetHasDrill = true;
+        
         DrillerScript drill = Instantiate(_Drill, _lastDrillPosition, transform.rotation);
         drill.GetComponent<DrillerScript>()._resourceManager = this._resourceManager;
-        drill.PlaceDrill(_isDrilling);
+        drill.PlaceDrill(_isDrilling, _planets._planetSize);
     }
 
 

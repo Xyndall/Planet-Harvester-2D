@@ -6,6 +6,7 @@ public class Planets : MonoBehaviour
 {
 
     public bool _hasDrill;
+    public int _planetSize;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
