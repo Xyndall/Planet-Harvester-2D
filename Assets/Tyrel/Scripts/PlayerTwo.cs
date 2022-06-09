@@ -22,6 +22,9 @@ public class PlayerTwo : MonoBehaviour
     private float _fireRatetimer = 0;
     public float _TimeToFire = 2;
 
+    public GameObject _upgradeUI;
+    bool _isOpened;
+
     public ProgressBar _progressBar;
     public GameObject _canvas;
     public Transform _SliderPosition;
@@ -34,6 +37,7 @@ public class PlayerTwo : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerisFrozen = false;
+        _isOpened = false;
     }
 
     void Update()
@@ -62,6 +66,20 @@ public class PlayerTwo : MonoBehaviour
             _fireRatetimer = 0.0f; 
         }
 
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            _isOpened = !_isOpened;
+        }
+        
+
+        if (_isOpened)
+        {
+            _upgradeUI.SetActive(true);
+        }
+        else
+        {
+            _upgradeUI.SetActive(false);
+        }
 
     }
 

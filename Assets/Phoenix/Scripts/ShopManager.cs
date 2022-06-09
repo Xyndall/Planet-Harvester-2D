@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ResourceTXT.text = "Money:" + Resources.ToString();
+        ResourceTXT.text = "Resources:" + Resources.ToString();
 
         //ID
         shopItems[1, 1] = 1;
