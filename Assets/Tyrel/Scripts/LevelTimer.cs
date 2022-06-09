@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 public class LevelTimer : MonoBehaviour
 {
-    public static float _timer = 10;
+    public static float _timer = 300;
     public bool _timerRunning;
     TextMeshProUGUI text;
 

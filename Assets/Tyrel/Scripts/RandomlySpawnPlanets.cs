@@ -9,7 +9,7 @@ public class RandomlySpawnPlanets : MonoBehaviour
     public Vector2 Size;
     public GameObject[] _planetPrefab;
 
-    public int _planetsSpawned = 20;
+    public static int _planetsSpawned = 20;
     public GameObject _planetParent;
     public Sprite[] _planetSprite;
     int _randomSprite;

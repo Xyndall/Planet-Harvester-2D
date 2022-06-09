@@ -18,8 +18,11 @@ public class ResourceManager : MonoBehaviour
     private float timer = 0.0f;
 
     public int _upgraded;
+    public int _droppedAmount;
 
-    
+    public DroppedResourceAmount _resourceDrop;
+    bool _isDamaged;
+
     void Start()
     {
         _upgraded = 0;
@@ -44,14 +47,29 @@ public class ResourceManager : MonoBehaviour
         
     }
 
+    void DropResources()
+    {
+        _droppedAmount = _resources / 10;
+        DroppedResourceAmount droppedResource = Instantiate(_resourceDrop, transform.position, transform.rotation);
+        droppedResource.GetComponent<DroppedResourceAmount>().amount = _droppedAmount;
+        _resources -= droppedResource.amount;
+    }
 
+    void GainExtraResources()
+    {
+        _resources += _resourceDrop.amount;
+    }
 
     void GainResource(int drillsOwned)
     {
-        _resources += drillsOwned + _planetSize * _upgraded;
+        _resources += drillsOwned + _planetSize + _upgraded;
     }
 
-
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(3);
+        _isDamaged = false;
+    }
 
     public void PlaceDrill(bool IsDrilling, int PlanetSize)
     {
@@ -59,5 +77,28 @@ public class ResourceManager : MonoBehaviour
         _planetSize += PlanetSize;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Resource" )
+        {
+            if(_isDamaged == false)
+            {
+                _resourceDrop = collision.gameObject.GetComponent<DroppedResourceAmount>();
+                GainExtraResources();
+                Destroy(collision.gameObject);
+            }
+            
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            DropResources();
+            _isDamaged = true;
+            ResetDamage();
+        }
+    }
 
 }
