@@ -6,20 +6,44 @@ using System.Diagnostics;
 
 public class LevelTimer : MonoBehaviour
 {
-    public static Stopwatch _timer;
+    public static float _timer = 10;
+    public bool _timerRunning;
     TextMeshProUGUI text;
+
+    public GameObject _winScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        _timer = new Stopwatch();
-        _timer.Start();
+        _winScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = _timer.Elapsed.ToString(@"mm\:ss\.ff");
+        if(_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+            DisplayTime(_timer);
+            _timerRunning = true;
+        }
+        else
+        {
+            _winScreen.SetActive(true);
+            Time.timeScale = 0;
+            _timerRunning = false;
+        }
+
+        
+
+        
+    }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        text.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 }

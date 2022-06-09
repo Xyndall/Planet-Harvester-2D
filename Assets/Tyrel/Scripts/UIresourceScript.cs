@@ -20,7 +20,7 @@ public class UIresourceScript : MonoBehaviour
     private void Update() 
     {
 
-        _textElement.text = "Resources: " + _resourceManager._resources;
+        _textElement.text = "" + _resourceManager._resources;
     } 
 
 

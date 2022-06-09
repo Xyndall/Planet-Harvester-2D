@@ -8,6 +8,7 @@ public class ResourceManager : MonoBehaviour
 {
 
     public int _resources;
+    public int _maxResourcesGained;
 
     bool _drilling;
     public int _drillsOwned;
@@ -47,7 +48,7 @@ public class ResourceManager : MonoBehaviour
 
     void GainResource(int drillsOwned)
     {
-        _resources += drillsOwned + _upgraded + _planetSize;
+        _resources += drillsOwned + _planetSize * _upgraded;
     }
 
 
