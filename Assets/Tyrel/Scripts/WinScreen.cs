@@ -14,6 +14,13 @@ public class WinScreen : MonoBehaviour
 
     public TextMeshProUGUI _winnerText;
 
+    public TextMeshProUGUI _playerOneText;
+    public TextMeshProUGUI _playerTwoText;
+
+    int _MaxPlayerOneResources;
+    int _MaxPlayerTwoResources;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +28,8 @@ public class WinScreen : MonoBehaviour
         _PlayerTwoResources.GetComponent<ResourceManager>();
         _timeFinished.GetComponent<LevelTimer>();
         _winnerText.GetComponent<TextMeshProUGUI>();
+        _playerOneText.GetComponent<TextMeshProUGUI>();
+        _playerTwoText.GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -33,16 +42,31 @@ public class WinScreen : MonoBehaviour
             _PlayerOneResources._maxResourcesGained = _PlayerOneResources._resources;
             _PlayerTwoResources._maxResourcesGained = _PlayerTwoResources._resources;
 
-            if(_PlayerOneResources._maxResourcesGained > _PlayerTwoResources._maxResourcesGained)
+            _MaxPlayerOneResources = _PlayerOneResources._maxResourcesGained;
+            _MaxPlayerTwoResources = _PlayerTwoResources._maxResourcesGained;
+
+            if(_MaxPlayerOneResources > _MaxPlayerTwoResources)
             {
                 _winnerText.text = "Player One Wins";
+                _playerOneText.text = "" + _MaxPlayerOneResources;
+                _playerTwoText.text = "" + _MaxPlayerTwoResources;
+            }
+            else if (_MaxPlayerTwoResources > _MaxPlayerOneResources)
+            {
+                _winnerText.text = "Player Two Wins";
+                _playerOneText.text = "" + _MaxPlayerOneResources;
+                _playerTwoText.text = "" + _MaxPlayerTwoResources;
             }
             else
             {
-                _winnerText.text = "Player Two Wins";
+                _winnerText.text = "Tie";
+                _playerOneText.text = "" + _MaxPlayerOneResources;
+                _playerTwoText.text = "" + _MaxPlayerTwoResources;
             }
 
         }
+
+        
 
     }
 }

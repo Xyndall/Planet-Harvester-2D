@@ -27,6 +27,7 @@ public class PlayerOne : MonoBehaviour
     public Transform _SliderPosition;
 
     public AudioSource _audioSource;
+    public AudioSource _Thrusters;
     public AudioClip[] _audioClip;
 
     void Start()
@@ -95,8 +96,7 @@ public class PlayerOne : MonoBehaviour
 
     void PlayThrusters()
     {
-        //Seperate AudioSource on empty child object
-
+        _Thrusters.PlayOneShot(_audioClip[1]);
     }
 
     void PlayAudio(int aClip)

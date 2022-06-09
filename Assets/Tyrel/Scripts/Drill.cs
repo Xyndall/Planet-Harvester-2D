@@ -7,19 +7,23 @@ public class Drill : MonoBehaviour
 
     public ResourceManager _resourceManager;
     Planets _planets;
+    
 
     public bool _isDrilling;
     public bool _overPlanet;
     public int _playerNum;
     public bool _hasDrill;
     public bool _planetHasDrill;
-    
+
+     public bool _isDamaged;
 
     public DrillerScript _Drill;
     Vector2 _lastDrillPosition;
     public float _stealTime = 3;
     bool _canSteal;
+    bool _Stealing;
     GameObject _drillLastTouched;
+
 
     public ProgressBar _progressBar;
     public GameObject _canvas;
@@ -27,7 +31,7 @@ public class Drill : MonoBehaviour
 
     private void Start()
     {
-
+        _isDamaged = false;
         _isDrilling = false;
         _planetHasDrill = false;
         _hasDrill = false;
@@ -52,6 +56,7 @@ public class Drill : MonoBehaviour
         {
 
             StartCoroutine(StealingDrillOne());
+
         }
         if(Input.GetKeyDown(KeyCode.F) && _canSteal && _playerNum == 1)
         {
@@ -75,34 +80,66 @@ public class Drill : MonoBehaviour
 
     IEnumerator StealingDrillOne()
     {
+        _Stealing = true;
         _canSteal = false;
         PlayerTwo playerTwo = GetComponent<PlayerTwo>();
         playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = true;
         ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
         progressBar.transform.SetParent(_canvas.transform);
-        yield return new WaitForSeconds(_stealTime);
-        playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = false;
-        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
-        Destroy(progressBar.gameObject);
-        Destroy(_drillLastTouched);
-        SpawnDrill();
+        while (_Stealing)
+        {
+            yield return new WaitForSeconds(_stealTime);
+            if (_isDamaged == true)
+            {
+                _Stealing = false;
+                Destroy(progressBar.gameObject);
+                break;
+            }
+            
+            playerTwo.GetComponent<PlayerTwo>()._playerisFrozen = false;
+            _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
+            Destroy(progressBar.gameObject);
+            Destroy(_drillLastTouched);
+            SpawnDrill();
+            _Stealing = false;
+        }
+        
     }
 
     IEnumerator StealingDrillTwo()
     {
+        _Stealing = true;
         _canSteal = false;
         PlayerOne playerOne = GetComponent<PlayerOne>();
         playerOne.GetComponent<PlayerOne>()._playerisFrozen = true;
         ProgressBar progressBar = Instantiate(_progressBar, _SliderPosition.position, _SliderPosition.rotation);
         progressBar.transform.SetParent(_canvas.transform);
-        yield return new WaitForSeconds(_stealTime);
-        playerOne.GetComponent<PlayerOne>()._playerisFrozen = false;
-        _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
-        Destroy(progressBar.gameObject);
-        Destroy(_drillLastTouched);
-        SpawnDrill();
+        while (_Stealing)
+        {
+            yield return new WaitForSeconds(_stealTime);
+            if (_isDamaged == true)
+            {
+                _Stealing = false;
+                Destroy(progressBar.gameObject);
+                break;
+            }
+            
+            playerOne.GetComponent<PlayerOne>()._playerisFrozen = false;
+            _drillLastTouched.GetComponent<DrillerScript>().DestroyDrill(_planets._planetSize);
+            Destroy(progressBar.gameObject);
+            Destroy(_drillLastTouched);
+            SpawnDrill();
+            _Stealing = false;
+        }
+        
     }
 
+
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(3);
+        _isDamaged = false;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -130,6 +167,18 @@ public class Drill : MonoBehaviour
             _planets = collision.gameObject.GetComponent<Planets>();
         }
 
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            
+            _isDamaged = true;
+            StartCoroutine(ResetDamage());
+
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)

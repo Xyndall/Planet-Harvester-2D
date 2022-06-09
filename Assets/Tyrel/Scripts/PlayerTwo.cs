@@ -27,6 +27,7 @@ public class PlayerTwo : MonoBehaviour
     public Transform _SliderPosition;
 
     public AudioSource _audioSource;
+    public AudioSource _Thrusters;
     public AudioClip[] _audioClip;
 
     void Start()
@@ -62,6 +63,11 @@ public class PlayerTwo : MonoBehaviour
         }
 
 
+    }
+
+    void PlayThrusters()
+    {
+        _Thrusters.PlayOneShot(_audioClip[1]);
     }
 
     void FixedUpdate()
@@ -108,12 +114,6 @@ public class PlayerTwo : MonoBehaviour
         Destroy(progressBar.gameObject);
         Debug.Log("PlayerTwo Unfroze");
          _playerisFrozen = false;
-
-    }
-
-    void PlayThrusters()
-    {
-        //Seperate AudioSource on empty child object
 
     }
 
