@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Animation
+  m_Title: Scene
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 301
     height: 518
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 107
+  controlID: 27
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 29
+  controlID: 15
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,8 +147,8 @@ MonoBehaviour:
     y: 0
     width: 404
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -175,12 +175,12 @@ MonoBehaviour:
     height: 309
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 41045
+  controlID: 16
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,7 +335,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 68368
+  m_LastSelectedObjectID: 56770
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,7 +366,7 @@ MonoBehaviour:
     m_SaveData: []
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da790000
+    m_SelectedIDs: 
     m_LastClickedID: 31194
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
@@ -581,21 +581,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tyrel/Assets
+    - Assets/Tyrel/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Users\270032985\OneDrive - UP Education\Documents\KrakenFix\Planet-Harvester-2D
+  m_LastProjectPath: D:\Kraken\Planet Harvester 2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 40710000
     m_LastClickedID: 28992
-    m_ExpandedIDs: 000000005e66000060660000626600006466000066660000686600006a6600006c6600006e660000
+    m_ExpandedIDs: 00000000d66000000c6100009e630000a0630000a2630000a4630000a6630000a8630000aa630000ac630000ae630000b0630000b2630000b4630000b6630000b8630000ba630000bc630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -620,21 +620,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 480}
+    scrollPos: {x: 0, y: 370}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000005e66000060660000626600006466000066660000686600006a6600006e660000b4660000c4660000d8660000466f0000da790000668600008286000084860000e6ef0000
+    m_ExpandedIDs: ffffffff00000000d66000009e630000a0630000a2630000a4630000a8630000aa630000ac630000ae630000b0630000b4630000b6630000b8630000ba630000bc630000206400004e640000f4660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Orbitronio
-      m_OriginalName: Orbitronio
+      m_Name: ShowPlayerStats
+      m_OriginalName: ShowPlayerStats
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 25964
+      m_UserData: 43716
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 455
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -751,23 +751,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1c650000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1641feff5a41feffa241feffe841feffaa4ffeffbcaafeffc259ffffce7dffffce85ffffa0f8fffffe630000066400003c64000098640000d6640000e8640000fa640000ca090100fc090100220a0100260a0100fc0a0100100b0100620b0100740b0100
+      m_SelectedIDs: 56dd0000
+      m_LastClickedID: 56662
+      m_ExpandedIDs: 5a42ffffa443ffff1c45ffffae47ffff505bffffa05bffffceb4ffffeac9ffff66d2ffff8ce5fffffce6ffff30e7ffff64e7ffffc2e9ffff8ceaffffaaf1ffffbaf1ffffccf1ffffd2f3ffff94f8ffffdaf8ffff12faffffb8650000f8650000066600000c660000326b0000166c0000ac700000da70000044710000527100001494000042960000949600006097000064a9000086a90000aaa90000d2a9000028aa00002caa000050aa00007eaa0000cac80000eac900005edd0000b0dd00007ede000000e00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Planets (1)
+        m_OriginalName: Planets (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -51678
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 2}
       m_SearchString: 
@@ -1024,9 +1024,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 816.3088, y: 530.92804, z: 0.8058882}
+    m_Target: {x: 253.98134, y: 665.2152, z: 10.898175}
     speed: 2
-    m_Value: {x: 816.3088, y: 530.92804, z: 0.8058882}
+    m_Value: {x: 253.98134, y: 665.2152, z: 10.898175}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 1, y: 1}
+      m_Size: {x: 1.6, y: 1.6}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
@@ -1077,9 +1077,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 419.9028
+    m_Target: 466.60446
     speed: 2
-    m_Value: 419.9028
+    m_Value: 466.60446
   m_Ortho:
     m_Target: 1
     speed: 2

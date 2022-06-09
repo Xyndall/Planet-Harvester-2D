@@ -32,7 +32,7 @@ public class RandomlySpawnPlanets : MonoBehaviour
     {
         Vector2 pos = Center + new Vector2(Random.Range(-Size.x / 2, Size.x / 2), Random.Range(-Size.y / 2, Size.y / 2));
 
-        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 5);
+        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 3);
         
         if(CollisionWithPlanet == false)
         {
