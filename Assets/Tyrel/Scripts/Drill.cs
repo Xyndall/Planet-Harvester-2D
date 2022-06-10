@@ -19,7 +19,7 @@ public class Drill : MonoBehaviour
 
     public DrillerScript _Drill;
     Vector2 _lastDrillPosition;
-    public float _stealTime = 3;
+    public float _stealTime = 5;
     bool _canSteal;
     bool _Stealing;
     GameObject _drillLastTouched;
@@ -36,6 +36,7 @@ public class Drill : MonoBehaviour
         _planetHasDrill = false;
         _hasDrill = false;
         _overPlanet = false;
+        _stealTime = 5;
     }
 
     private void Update()

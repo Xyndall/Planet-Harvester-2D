@@ -38,6 +38,9 @@ public class PlayerTwo : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _playerisFrozen = false;
         _isOpened = false;
+        _thrustSpeed = 5;
+        _turnSpeed = 1;
+        _reverseSpeed = -2;
     }
 
     void Update()
