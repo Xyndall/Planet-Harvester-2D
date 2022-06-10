@@ -18,6 +18,10 @@ public class UpgradePlayer : MonoBehaviour
     public TextMeshProUGUI _boostText;
     public TextMeshProUGUI _fireRateText;
     public TextMeshProUGUI _drillStealText;
+    
+    public TextMeshProUGUI _ResourceAmount;
+
+
 
     void Start()
     {
@@ -37,6 +41,7 @@ public class UpgradePlayer : MonoBehaviour
         _boostText.text = "" + _boostupgradeCost;
         _drillStealText.text = "" + _drillStealCost;
         _fireRateText.text = "" + _fireRateUpgradeCost;
+        _ResourceAmount.text = "" + _resourceManager._resources;
     }
 
     public void UpgradeResources()
