@@ -25,6 +25,9 @@ public class PlayerTwo : MonoBehaviour
     public GameObject _upgradeUI;
     bool _isOpened;
 
+    bool _isDamaged;
+    int _resetDamageTime = 5;
+
     public ProgressBar _progressBar;
     public GameObject _canvas;
     public Transform _SliderPosition;
@@ -123,8 +126,17 @@ public class PlayerTwo : MonoBehaviour
 
     public void FreezePlayer()
     {
-        _playerisFrozen = true;
-        StartCoroutine(PlayerFrozen());
+        if (_isDamaged == false)
+        {
+            _playerisFrozen = true;
+            StartCoroutine(PlayerFrozen());
+        }
+    }
+
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(_resetDamageTime);
+        _isDamaged = false;
     }
 
     IEnumerator PlayerFrozen()
@@ -149,7 +161,8 @@ public class PlayerTwo : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             PlayAudio(2);
-            
+            _isDamaged = true;
+            StartCoroutine(ResetDamage());
         }
     }
 }

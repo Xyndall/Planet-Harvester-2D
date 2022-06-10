@@ -21,6 +21,7 @@ public class ResourceManager : MonoBehaviour
     public int _droppedAmount;
 
     public DroppedResourceAmount _resourceDrop;
+    DroppedResourceAmount _newResourceDrop;
     bool _isDamaged;
 
     void Start()
@@ -57,7 +58,7 @@ public class ResourceManager : MonoBehaviour
 
     void GainExtraResources()
     {
-        _resources += _resourceDrop.amount;
+        _resources += _newResourceDrop.amount;
     }
 
     void GainResource(int drillsOwned)
@@ -68,6 +69,7 @@ public class ResourceManager : MonoBehaviour
     IEnumerator ResetDamage()
     {
         yield return new WaitForSeconds(3);
+        Debug.Log("notDamaged");
         _isDamaged = false;
     }
 
@@ -83,9 +85,11 @@ public class ResourceManager : MonoBehaviour
         {
             if(_isDamaged == false)
             {
-                _resourceDrop = collision.gameObject.GetComponent<DroppedResourceAmount>();
+                Debug.Log("PickedUP");
+                _newResourceDrop = collision.gameObject.GetComponent<DroppedResourceAmount>();
                 GainExtraResources();
                 Destroy(collision.gameObject);
+                Debug.Log("PickedUP" + _newResourceDrop.amount);
             }
             
         }
@@ -97,7 +101,7 @@ public class ResourceManager : MonoBehaviour
         {
             DropResources();
             _isDamaged = true;
-            ResetDamage();
+            StartCoroutine(ResetDamage());
         }
     }
 

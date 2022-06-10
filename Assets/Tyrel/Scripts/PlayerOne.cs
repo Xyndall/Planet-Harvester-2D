@@ -11,6 +11,9 @@ public class PlayerOne : MonoBehaviour
     public float _turnSpeed = 1;
     public float _reverseSpeed = -2;
 
+    bool _isDamaged;
+    int _resetDamageTime = 5;
+
     private bool _thrusting;
     private bool _reverse;
     private float _turnDir;
@@ -24,6 +27,7 @@ public class PlayerOne : MonoBehaviour
 
     public GameObject _upgradeUI;
     bool _isOpened;
+    
 
     public ProgressBar _progressBar;
     public GameObject _canvas;
@@ -130,8 +134,18 @@ public class PlayerOne : MonoBehaviour
 
     public void FreezePlayer()
     {
-        _playerisFrozen = true;
-        StartCoroutine(PlayerFrozen());
+        if(_isDamaged == false)
+        {
+            _playerisFrozen = true;
+            StartCoroutine(PlayerFrozen());
+        }
+        
+    }
+
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(_resetDamageTime);
+        _isDamaged = false;
     }
 
     IEnumerator PlayerFrozen()
@@ -151,6 +165,8 @@ public class PlayerOne : MonoBehaviour
         {
 
             PlayAudio(2);
+            _isDamaged = true;
+            StartCoroutine(ResetDamage());
         }
     }
 
