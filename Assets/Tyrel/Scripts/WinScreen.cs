@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class WinScreen : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class WinScreen : MonoBehaviour
     int _MaxPlayerOneResources;
     int _MaxPlayerTwoResources;
 
+    int PlayerWhoWon;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,18 @@ public class WinScreen : MonoBehaviour
         _playerOneText.GetComponent<TextMeshProUGUI>();
         _playerTwoText.GetComponent<TextMeshProUGUI>();
 
+        
     }
+
+    void SendAnalytics()
+    {
+        
+        GameAnalytics.NewDesignEvent("Player Who one", PlayerWhoWon);
+        GameAnalytics.NewDesignEvent("Player One Resources", _MaxPlayerOneResources);
+        GameAnalytics.NewDesignEvent("Player Two Resources", _MaxPlayerTwoResources);
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -50,18 +63,24 @@ public class WinScreen : MonoBehaviour
                 _winnerText.text = "Player One Wins";
                 _playerOneText.text = "" + _MaxPlayerOneResources;
                 _playerTwoText.text = "" + _MaxPlayerTwoResources;
+                PlayerWhoWon = 1;
+                SendAnalytics();
             }
             else if (_MaxPlayerTwoResources > _MaxPlayerOneResources)
             {
                 _winnerText.text = "Player Two Wins";
                 _playerOneText.text = "" + _MaxPlayerOneResources;
                 _playerTwoText.text = "" + _MaxPlayerTwoResources;
+                PlayerWhoWon = 2;
+                SendAnalytics();
             }
             else
             {
                 _winnerText.text = "Tie";
                 _playerOneText.text = "" + _MaxPlayerOneResources;
                 _playerTwoText.text = "" + _MaxPlayerTwoResources;
+                PlayerWhoWon = 0;
+                SendAnalytics();
             }
 
         }
