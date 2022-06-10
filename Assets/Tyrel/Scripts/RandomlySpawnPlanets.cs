@@ -9,7 +9,7 @@ public class RandomlySpawnPlanets : MonoBehaviour
     public Vector2 Size;
     public GameObject[] _planetPrefab;
 
-    public static int _planetsSpawned = 20;
+    public static int _planetsSpawned = 50;
     public GameObject _planetParent;
     public Sprite[] _planetSprite;
     int _randomSprite;
@@ -32,7 +32,7 @@ public class RandomlySpawnPlanets : MonoBehaviour
     {
         Vector2 pos = Center + new Vector2(Random.Range(-Size.x / 2, Size.x / 2), Random.Range(-Size.y / 2, Size.y / 2));
 
-        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 3);
+        Collider2D CollisionWithPlanet = Physics2D.OverlapCircle(pos, 5);
         
         if(CollisionWithPlanet == false)
         {

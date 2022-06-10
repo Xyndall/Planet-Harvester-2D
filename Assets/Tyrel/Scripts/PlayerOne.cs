@@ -38,6 +38,9 @@ public class PlayerOne : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _upgradeUI.SetActive(false);
         _isOpened = false;
+        _thrustSpeed = 5;
+        _turnSpeed = 1;
+        _reverseSpeed = -2;
     }
 
     void Update()
